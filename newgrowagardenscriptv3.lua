@@ -137,7 +137,7 @@ closeTradeBtn.MouseButton1Click:Connect(function()
 	tradePanel.Visible = false
 end)
 
--- Toggle logic (visual only)
+-- Toggle logic
 local freezeOn = false
 freezeBtn.MouseButton1Click:Connect(function()
 	freezeOn = not freezeOn
